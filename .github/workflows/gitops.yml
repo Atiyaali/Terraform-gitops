@@ -40,6 +40,15 @@ jobs:
       - name: Terraform Validate
         run: terraform validate
 
+      - name: Setup tfsec
+        uses: aquasecurity/tfsec-action-setup@v1.0.3
+        with:
+          github_token: ${{ github.token }}
+
+      - name: Run tfsec Security Scan 
+        continue-on-error: true 
+        run: tfsec .
+
       - name: Terraform Plan (Pull Request)
         if: github.event_name == 'pull_request'
         run: terraform plan -no-color
