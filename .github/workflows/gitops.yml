@@ -41,9 +41,8 @@ jobs:
         run: terraform validate
 
       - name: Setup tfsec
-        uses: aquasecurity/tfsec-action-setup@v1.0.3
-        with:
-          github_token: ${{ github.token }}
+        run: |
+          curl -s https://raw.githubusercontent.com/aquasecurity/tfsec/master/scripts/install_linux.sh | bash
 
       - name: Run tfsec Security Scan 
         continue-on-error: true 
