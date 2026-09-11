@@ -19,7 +19,7 @@ on:
 jobs:
   terraform:
     name: "Terraform Plan & Apply"
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
 
     # Inject AWS credentials and Terraform variables securely from GitHub Secrets
     env:
