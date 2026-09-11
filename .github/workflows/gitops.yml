@@ -1,20 +1,12 @@
 name: "Terraform GitOps Pipeline"
 
 on:
-  pull_request:
-    branches:
-      - main
-    paths:
-      - '**/*.tf'
-      - 'terraform.tfvars'
-      - 'scripts/**/*.tpl'
   push:
     branches:
       - main
-    paths:
-      - '**/*.tf'
-      - 'terraform.tfvars'
-      - 'scripts/**/*.tpl'
+  pull_request:
+    branches:
+      - main
 
 jobs:
   terraform:
